@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interest Calculation</title>
+    <script>
+        function calculateInterest() {
+            // get access to textboxes
+            var txtAmount = document.getElementById("txtAmount")
+            var txtRate = document.getElementById("txtRate")
+
+            // Convert string to int 
+            var amount = parseInt(txtAmount.value)
+            var rate = parseInt(txtRate.value)
+
+            var interest = amount * rate / 100
+            alert(interest)
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Interest Calculation</h1>
+    Amount
+    <br />
+    <input type="number" id="txtAmount" />
+    <p></p>
+    Interest Rate
+    <br />
+    <input type="number" id="txtRate" />
+    <p></p>
+    <button onclick="calculateInterest()">Calculate</button>
+</body>
+
+</html>
