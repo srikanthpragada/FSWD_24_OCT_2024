@@ -16,7 +16,9 @@
             var rate = parseInt(txtRate.value)
 
             var interest = amount * rate / 100
-            alert(interest)
+            //alert(interest)
+            var interestAmount = document.getElementById("interestAmount")
+            interestAmount.innerHTML = interest 
         }
     </script>
 </head>
@@ -32,6 +34,7 @@
     <input type="number" id="txtRate" />
     <p></p>
     <button onclick="calculateInterest()">Calculate</button>
+    <h2 style="color:blue" id="interestAmount"></h2>
 </body>
 
 </html>
