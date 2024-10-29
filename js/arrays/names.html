@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Names</title>
+    <script>
+        var names = []
+        function addName() {
+            let name = document.getElementById("txtName").value
+            names.push(name)
+            //console.log(names)
+            let output = ""
+            for (let name of names) {
+                output = output + `<li>${name}</li>`
+            }
+            document.getElementById("ulNames").innerHTML = output 
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Names</h1>
+    Name: <input type="text" id="txtName" />
+    <button onClick="addName()">Add</button>
+    <ul id="ulNames">
+
+    </ul>
+
+</body>
+
+</html>

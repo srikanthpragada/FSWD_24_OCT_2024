@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validate Mobile</title>
+    <script>
+        function validateMobile() {
+            var txtMobile = document.getElementById("txtMobile")
+            var mobile = txtMobile.value
+            if (mobile.length !== 10) {
+                alert("Sorry! Invalid mobile as it is not having 10 digits!")
+                return;  // terminate function 
+            }
+
+            for (let i = 0; i < mobile.length; i++) {
+                let code = mobile.charCodeAt(i)
+                if (code < 48 || code > 57) {
+                    alert("Sorry! Invalid Mobile as it has non-digit!")
+                    return
+                }
+            }
+
+            // valid mobile number
+            alert("Valid Mobile Number!")
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Validate Mobile</h1>
+    Mobile <input type="text" id="txtMobile" />
+    <p></p>
+    <button onclick="validateMobile()">Validate</button>
+
+</body>
+
+</html>
