@@ -7,21 +7,17 @@
     <title>Names</title>
     <script>
         var names = []
-        function deleteName() {
-            let name = document.getElementById("txtName").value
-            let pos = names.indexOf(name)
-            if (pos >= 0) {
-                names.splice(pos, 1)
-                listNames()
-            }
-            else
-                alert("Sorry! Name not found!")
+        function deleteName(idx) {
+            console.log('Deleting ' + idx)
+            names.splice(idx, 1)
+            listNames()
         }
 
         function listNames() {
             let output = ""
-            for (let name of names) {
-                output = output + `<li>${name}</li>`
+            for (let idx in names) {
+                output = output +
+                  `<li>${names[idx]} <button onclick="deleteName(${idx})">Del</button></li>`
             }
             document.getElementById("ulNames").innerHTML = output
         }
@@ -42,7 +38,6 @@
     <h1>Names</h1>
     Name: <input type="text" id="txtName" />
     <button onClick="addName()">Add</button>
-    <button onClick="deleteName()">Delete</button>
     <ul id="ulNames">
 
     </ul>

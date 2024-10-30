@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Total Marks</title>
+    <script>
+
+        function getTotal() {
+            let data = document.getElementById("txtMarks").value
+            let marks = data.split(",") // get list of strings 
+            let total = 0
+            for (let m of marks)
+                total += parseInt(m) // convert str to int and then add 
+
+            alert(total)
+        }
+
+    </script>
+</head>
+
+<body>
+    <h1>Total Marks</h1>
+    Name: <input type="text" id="txtMarks" />
+    <button onClick="getTotal()">Total</button>
+
+
+</body>
+
+</html>
