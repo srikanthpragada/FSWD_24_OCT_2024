@@ -11,9 +11,10 @@
             let data = document.getElementById("txtMarks").value
             let marks = data.split(",") // get list of strings 
             let total = 0
-            for (let m of marks)
-                total += parseInt(m) // convert str to int and then add 
-
+            for (let m of marks) {
+                if( /^[0-9]+$/.test(m))
+                     total += parseInt(m) // convert str to int and then add 
+            }
             alert(total)
         }
 
