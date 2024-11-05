@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window Object Demo</title>
+    <script>
+        
+        document.write(window.innerHeight + '<p/>')
+        myWindow = window.open("https://www.google.com", "",
+                                "width=200, height=100");
+        function resizeWindow() {
+            myWindow.resizeTo(300, 300);
+        }
+    </script>
+</head>
+
+<body>
+    <button onClick="resizeWindow()">Resize</button>
+</body>
+
+</html>
