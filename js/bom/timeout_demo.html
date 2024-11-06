@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeout Demo</title>
+    <script>
+        var id = null; 
+        function addTimeout() {
+           id = setTimeout( () => alert("Timed Out!!"), 5000)
+           console.log("Timeout is set!")
+        }
+
+        function deleteTimeout() {
+            clearTimeout(id)
+            console.log("Timeout is cleared!")
+        }
+    </script>
+</head>
+<body>
+    <h2>Timeout Demo</h2>
+    <button onclick="addTimeout()">Set Timeout</button>
+    <button onclick="deleteTimeout()">Remove Timeout</button>
+</body>
+</html>

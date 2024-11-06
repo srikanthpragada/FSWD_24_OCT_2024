@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storage Demo</title>
+</head>
+
+<body>
+    <h2>Storage Demo</h2>
+    Key : <input type="text" id="txtKey" />
+    Value : <input type="text" id="txtValue" />
+    <p></p>
+    <button onClick="add()">Add</button>
+    <button onClick="remove()">Remove</button>
+    <button onClick="get()">Get</button>
+
+    <script>
+        var key = document.getElementById("txtKey")
+        var data = document.getElementById("txtValue")
+
+        function add() {
+            localStorage.setItem(key.value, data.value);
+        }
+        function remove() {
+            localStorage.removeItem(key.value);
+        }
+        function get() {
+            alert(localStorage.getItem(key.value));
+        }
+    </script>
+
+</body>
+
+</html>

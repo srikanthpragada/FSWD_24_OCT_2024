@@ -1,0 +1,20 @@
+<html>
+
+<body>
+    <h1 id="first" onclick="change(this)">This is first heading!</h1>
+    <h1 id="second" onclick="change(this)">This is second heading!</h1>
+</body>
+<script>
+    document.getElementById("first").addEventListener("mouseover", show);
+    
+    function change(ele) {
+        ele.innerHTML = "You clicked on this!";
+    }
+    // evt is of type MouseEvent
+    function show(evt) {
+        // console.log(evt);
+        evt.target.innerHTML = "Moving mouse!!!"
+    }
+</script>
+
+</html>

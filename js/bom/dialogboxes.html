@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dialog Boxes</title>
+    <script>
+        function showDate() {
+           alert(new Date())
+        }
+
+        function takeConfirmation() {
+            var result = confirm("Do you want to go???")
+            if (result)  // Ok
+                alert('Yes!!!')
+            else
+                alert("No....")
+        }
+
+        function takeName() {
+           var name =  prompt("Enter your name :")
+           if(name != null && name !== "")
+                alert("Hello " + name)
+        }
+
+    </script>
+</head>
+
+<body>
+    <button onClick="showDate()">Show Date</button>
+    <button onClick="takeConfirmation()">Take Confirmation</button>
+    <button onClick="takeName()">Take Name</button>
+
+</body>
+
+</html>

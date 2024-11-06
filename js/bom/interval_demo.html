@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interval Demo</title>
+    <script>
+        var id = null; 
+        var counter = 0
+        function addInterval() {
+           id = setInterval( () => console.log(++counter), 2000)
+        }
+
+        function deleteInterval() {
+            clearInterval(id)
+        }
+    </script>
+</head>
+<body>
+    <h2>Interval Demo</h2>
+    <button onclick="addInterval()">Set Interval</button>
+    <button onclick="deleteInterval()">Remove Interval</button>
+</body>
+</html>
