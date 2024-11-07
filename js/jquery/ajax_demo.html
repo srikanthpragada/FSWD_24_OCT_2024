@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script>
+        function getTime() {
+            $.get("https://worldtimeapi.org/api/timezone/asia/kolkata",
+                (result) => {
+                    $("#time").text(result.datetime)
+                    $("#utc").text(result.utc_datetime)
+                }
+            )
+        }
+    </script>
+</head>
+
+<body>
+    <button onClick="getTime()">Get Time</button>
+    <h1 id="time"></h1>
+    <h1 id="utc"></h1>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub User Info</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script>
+        function getUserInfo() {
+            $("#userInfo").hide()
+            let username = $("#txtUser").val()
+            $.ajax(
+                {
+                    url: `https://api.github.com/users/${username}`,
+                    success: showDetails,
+                    error: showError
+                }
+            )
+        }
+
+        function showDetails(userInfo) {
+            $("#username").html(userInfo.name)
+            $("#profilePic").attr("src", userInfo.avatar_url)
+            $("#userInfo").show()
+        }
+
+        function showError(err) {
+            console.log(err)
+            alert('Sorry! Username is not found!')
+        }
+    </script>
+</head>
+
+<body>
+    <h2>GitHub User Info</h2>
+    GitHub Username : <input type="text" id="txtUser" value="srikanthpragada" />
+    <p></p>
+    <button onClick="getUserInfo()">Get Details</button>
+    <div id="userInfo" style="display: none;">
+        <h1 id="username"></h1>
+        <img id="profilePic" style="width:300px;height:400px" />
+    </div>
+
+</body>
+
+</html>
