@@ -1,6 +1,6 @@
-create database hr;
+create database oct24;
 
-use hr;
+use oct24;
 
 
 
@@ -110,6 +110,11 @@ group by dept_id
 order by 2
 
 
+select dept_name, count(*)
+from employees join departments using (dept_id)
+group by dept_name
+
+
 select * from departments
 where dept_id in
   (select dept_id
@@ -128,4 +133,17 @@ from employees
 where salary > 400000
 group by dept_id
 having count(*)  > 3
+
+
+select *
+from employees  
+where dept_id in 
+  (select dept_id from departments where dept_name like 'A%')
+
+
+select *
+from employees  
+where salary =
+   (select max(salary) from employees)
+   
 
