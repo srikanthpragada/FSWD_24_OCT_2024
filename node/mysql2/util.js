@@ -1,4 +1,5 @@
-exports.connectionString =  {
+
+exports.connectionDetails = {
     host: "localhost",
     user: "root",
     password: "mysql",

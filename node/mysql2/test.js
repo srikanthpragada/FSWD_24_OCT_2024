@@ -1,14 +1,14 @@
 var mysql2 = require('mysql2/promise');
-var {connectionString} = require("./util")
+var {connectionDetails} = require("./util")
 
 async function test() {
   try {
-    const con = await mysql2.createConnection(connectionString);
+    const con = await mysql2.createConnection(connectionDetails);
     console.log('Connected!')
-    con.end();
+    await con.end();
   }
   catch (error) {
-    console.log("Error --> ", error)
+    console.log("Error --> ", error.message)
   }
 }
 

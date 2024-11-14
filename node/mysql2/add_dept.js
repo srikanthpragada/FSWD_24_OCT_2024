@@ -1,23 +1,18 @@
 var mysql2 = require('mysql2/promise');
+var { connectionDetails } = require('./util')
 
 async function add_dept() {
-  const con = await mysql2.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "mysql",
-    database: "feb7"
-  });
-
+  const con = await mysql2.createConnection(connectionDetails);
   try {
-    const [result, fields] = await con.execute
-      ("insert into departments values(?,?)",
-        ['d3', 'Department 3'])
+    const [result] = await con.execute
+      ("insert into departments values(?,?)", ['sp', 'Sports'])
     console.log(result)
   }
-  catch (error) {
-    console.log("Error -->", error)
+  catch (ex) {
+    console.log(ex)
   }
-  con.end();
+
+  await con.end();
 }
 
 
