@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+    <%- include("bootstrap") %>
+</head>
+
+<body>
+    <div class="container">
+        <%- include("menu") %>
+            <h4>Search Employees</h4>
+            <form method="post">
+                Name : <input type="text" name="empname" value="<%=empname%>" />
+                <button>Search</button>
+            </form>
+            <p></p>
+
+            <% if (employees && employees.length > 0) { %>
+
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Department Id</th>
+                        <th>Salary</th>
+                        <th></th>
+                    </tr>
+
+                    <% employees.forEach( e=> {%>
+                        <tr>
+                            <td>
+                                <%= e.emp_id %>
+                            </td>
+                            <td class="text-center">
+                                <%= e.fullname %>
+                            </td>
+                            <td class="text-center">
+                                <%= e.dept_id %>
+                            </td>
+                            <td class="text-end">
+                                <%= e.salary %>
+                            </td>
+                            <td class="text-center">
+                                <a href="/edit/<%=e.emp_id%>">Edit</a>
+                                <a onClick="return confirm('Do you want to delete?')"
+                                    href="/delete/<%=e.emp_id%>">Delete</a>
+                            </td>
+                        </tr>
+                        <%})%>
+                </table>
+                <% } else 
+                    if(employees) { // empty array  %>
+                          <h3>Sorry! No Employees Found</h3>
+                    <% } %>
+    </div>
+</body>
+
+</html>

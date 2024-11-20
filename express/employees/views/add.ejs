@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <%- include("bootstrap") %>
+</head>
+
+<body>
+    <div class="container">
+        <%- include("menu") %>
+            <p></p>
+            <h4>Add Employee</h4>
+            <p></p>
+            <form method="post">
+                Employee Name <br />
+                <input type="text" name="empname" value="<%=empname%>" required />
+                <p></p>
+
+                Department Id <br />
+                <input type="text" maxlength="2" name="deptid" value="<%=deptid%>" required />
+                <p></p>
+
+                Salary <br />
+                <input type="number" name="salary" value="<%=salary%>" required />
+                <p></p>
+
+                <button>Add</button>
+                <p></p>
+                <div class="text-danger"><%= message %></div>
+
+            </form>
+</body>
+
+</html>
