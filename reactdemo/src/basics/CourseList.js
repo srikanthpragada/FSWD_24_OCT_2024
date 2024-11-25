@@ -13,6 +13,7 @@ export default function CourseList(props) {
                         <th>Fee</th>
                         <th>Discount %</th>
                         <th>Discount</th>
+                        <th>Net Fee</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -22,6 +23,9 @@ export default function CourseList(props) {
                                 <td>{c.title}</td>
                                 <td className="text-end">{c.fee}</td>
                                 <td className="text-end">{c.disrate}</td>
+                                <td className="text-end">{c.fee * c.disrate / 100}</td>
+                                <td className="text-end">{c.fee - (c.fee * c.disrate / 100)}</td>
+
                             </tr>
                         )
                     }

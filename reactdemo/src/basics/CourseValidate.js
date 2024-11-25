@@ -1,6 +1,7 @@
-import React from 'react' 
-  
-export default function Course(props) {
+import React from 'react'
+import PropTypes from 'prop-types';
+
+export default function CourseValidate(props) {
     return (
         <div>
             <h2>Course Details</h2>
@@ -19,3 +20,9 @@ export default function Course(props) {
         </div>
     )
 }
+
+
+CourseValidate.propTypes = {
+    title: PropTypes.string.isRequired,
+    fee: PropTypes.number.isRequired
+};

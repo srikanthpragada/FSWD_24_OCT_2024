@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Course from './basics/Course';
-import CourseList from './basics/CourseList';
-
+import WishCC from './basics/WishCC';
+  
 let courses = [
   { title: 'Power BI', fee: 10000, disrate: 10 },
   { title: 'Python', fee: 8000, disrate: 5 },
@@ -12,7 +11,7 @@ let courses = [
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <CourseList courses={courses} />
+      <WishCC name="Gates" />
   </React.StrictMode>
 );
 
