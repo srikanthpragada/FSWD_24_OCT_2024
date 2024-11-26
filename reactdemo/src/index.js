@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import WishCC from './basics/WishCC';
+import Skills from './state/Skills';
   
 let courses = [
   { title: 'Power BI', fee: 10000, disrate: 10 },
@@ -11,7 +11,7 @@ let courses = [
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-      <WishCC name="Gates" />
+      <Skills />
   </React.StrictMode>
 );
 
