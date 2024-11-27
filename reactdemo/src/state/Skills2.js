@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 
-export default function Skills() {
+export default function Skills2() {
     let [skills, setSkills] = useState([])
+    let [newSkill, setNewSkill] = useState('Java')
     let [message, setMessage] = useState("")
 
-    function addSkill() {
-        let newSkill = document.getElementById("txtSkill").value
-        // skills.push(newSkill)
-        // setSkills(skills)
+    function addSkill(evt) {
+        evt.preventDefault()  // prevent form submission
+
         setMessage('')
         if (skills.includes(newSkill))
             setMessage('Duplicate Skill')
@@ -21,13 +21,21 @@ export default function Skills() {
             setSkills(skills.filter((item, idx) => idx !== idxToDelete))
     }
 
+    function updateSkill(e) {
+        //console.log(e.target.value)
+        setNewSkill(e.target.value)
+    }
+
     return (
         <div>
             <h2>Skills</h2>
-            Skill <input type="text" id="txtSkill" />
-            <button onClick={addSkill}>Add</button>
-            &nbsp; 
-            <span className="text-danger">{message}</span>
+            <form onSubmit={addSkill}>
+                Skill <input type="text" id="txtSkill"
+                         value={newSkill} onChange={updateSkill} required />
+                <button>Add</button>
+                &nbsp;
+                <span className="text-danger">{message}</span>
+            </form>
             <p></p>
             {
                 skills.length > 0 ?
