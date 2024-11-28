@@ -1,25 +1,57 @@
 import React, { useState } from 'react'
 
-function AddSkill() {
+function AddSkill({ skills, addSkill }) {
+    let [newSkill, setNewSkill] = useState('Java')
+    let [message, setMessage] = useState("")
+
+    function updateSkill(e) {
+        setNewSkill(e.target.value)
+    }
+
+    function addNewSkill(evt) {
+        evt.preventDefault()  // prevent form submission
+
+        setMessage('')
+        if (skills.includes(newSkill))
+            setMessage('Duplicate Skill')
+        else {
+            addSkill(newSkill) // Call parent function 
+        }
+    }
+
     return (
-        <h2>Add Skills</h2>
+        <div>
+            <h5>Add Skills</h5>
+            <form onSubmit={addNewSkill}>
+                Skill <input type="text" id="txtSkill"
+                    value={newSkill} onChange={updateSkill} required />
+                <button>Add</button>
+                &nbsp;
+                <span className="text-danger">{message}</span>
+            </form>
+        </div>
     )
 }
 
-function ListSkills({ skills }) {
+function ListSkills({ skills, deleteSkill }) {
+    // Event handler for button
+    function deleteOneSkill(idxToDelete) {
+        if (window.confirm('Do you want to delete?'))
+            deleteSkill(idxToDelete)  // call function in parent 
+    }
     return (
         <div>
             {
                 skills.length > 0 ?
                     <div>
-                        <h4>Current Skills</h4>
+                        <h5>Current Skills</h5>
                         <ul>
                             {
                                 skills.map((skill, idx) =>
                                     <li key={idx}>
                                         {skill}
                                         &nbsp;
-                                        <button>Del</button>
+                                        <button onClick={() => deleteOneSkill(idx)}>Del</button>
                                     </li>)
                             }
                         </ul>
@@ -32,42 +64,22 @@ function ListSkills({ skills }) {
 
 export default function Skills3() {
     let [skills, setSkills] = useState([])
-    let [newSkill, setNewSkill] = useState('Java')
-    let [message, setMessage] = useState("")
 
-    function addSkill(evt) {
-        evt.preventDefault()  // prevent form submission
-
-        setMessage('')
-        if (skills.includes(newSkill))
-            setMessage('Duplicate Skill')
-        else {
-            setSkills([newSkill, ...skills])
-        }
+    function addSkill(newSkill) {
+        setSkills([newSkill, ...skills])
     }
 
     function deleteSkill(idxToDelete) {
-        if (window.confirm('Do you want to delete?'))
-            setSkills(skills.filter((item, idx) => idx !== idxToDelete))
-    }
-
-    function updateSkill(e) {
-        //console.log(e.target.value)
-        setNewSkill(e.target.value)
+        setSkills(skills.filter((item, idx) => idx !== idxToDelete))
     }
 
     return (
         <div>
             <h2>Skills</h2>
-            <form onSubmit={addSkill}>
-                Skill <input type="text" id="txtSkill"
-                    value={newSkill} onChange={updateSkill} required />
-                <button>Add</button>
-                &nbsp;
-                <span className="text-danger">{message}</span>
-            </form>
+            <hr/>
+            <AddSkill skills={skills} addSkill={addSkill} />
             <p></p>
-            <ListSkills skills={skills} />
+            <ListSkills skills={skills} deleteSkill={deleteSkill} />
         </div>
     )
 }
