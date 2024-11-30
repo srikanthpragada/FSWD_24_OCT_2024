@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import CounterCC from './state/CounterCC';
+import UncontrolledDemo from './state/UncontrolledDemo';
   
 let courses = [
   { title: 'Power BI', fee: 10000, disrate: 10 },
@@ -11,7 +11,7 @@ let courses = [
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-       <CounterCC />
+       <UncontrolledDemo />
   </React.StrictMode>
 );
 
