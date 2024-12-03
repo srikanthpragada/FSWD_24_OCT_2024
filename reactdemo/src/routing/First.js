@@ -15,6 +15,8 @@ export default function First() {
   return (
     <>
       <h1>First Component</h1>
+      This is first component 
+      <p></p>
       <button onClick={gotoSecond}>Second</button>
       &nbsp;
       <button onClick={gotoError}>Error</button>
