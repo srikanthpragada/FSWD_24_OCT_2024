@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import $ from 'jquery'
 import { BOOKS_URL } from './constants'
 import { useNavigate } from 'react-router-dom'
 

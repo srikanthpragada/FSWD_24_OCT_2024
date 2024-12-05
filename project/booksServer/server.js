@@ -8,8 +8,8 @@ var app = express();
 app.use(express.json());
 app.use(cors()) 
 
-// static files config
-//app.use(express.static('build'))
+//static files config
+app.use(express.static('build'))
 
 
 app.get('/books', handlers.getBooks) 
